@@ -17,6 +17,11 @@ class Team:
     def random(cls):
         name = next(cls._name_generator)
         t = Team(name)
-        for _ in range(11):
-            t.players.append(Player.random())
+        t.players.append(Player.random(number=1, role="GK"))
+        for i in range(4):
+            t.players.append(Player.random(number=i+2, role="DF"))
+        for i in range(4):
+            t.players.append(Player.random(number=i+6, role="MC"))
+        for i in range(2):
+            t.players.append(Player.random(number=i+10, role="FW"))
         return t
